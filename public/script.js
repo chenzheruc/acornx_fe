@@ -36,4 +36,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Load shared components
 	loadHTML("navigation-placeholder", "/navigation.html");
+    loadHTML("footer-placeholder", "/footer.html");
 });
