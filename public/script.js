@@ -36,5 +36,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Load shared components
 	loadHTML("navigation-placeholder", "/navigation.html");
-    loadHTML("footer-placeholder", "/footer.html");
+	loadHTML("footer-placeholder", "/footer.html");
+
+	// Handle Login Form Submission
+	const loginForm = document.getElementById("login-form");
+	if (loginForm) {
+		loginForm.addEventListener("submit", function (event) {
+			event.preventDefault(); // Prevent the default form submission
+
+			const email = document.getElementById("email-address").value;
+			const password = document.getElementById("password").value;
+			const errorDiv = document.getElementById("login-error");
+
+			fetch("https://api.acornx.app/login", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ email, password }),
+			})
+				.then((response) => {
+					if (response.ok) {
+						return response.json(); // or response.text() if the API returns text
+					} else {
+						// Handle HTTP errors (e.g., 401, 404, 500)
+						throw new Error("Invalid email or password.");
+					}
+				})
+				.then((data) => {
+					console.log("Login successful:", data);
+					// On success, hide any previous error and redirect
+					errorDiv.classList.add("hidden");
+					window.location.href = "/profile.html"; // Redirect to the profile page
+				})
+				.catch((error) => {
+					console.error("Login failed:", error);
+					// Display error message to the user
+					errorDiv.textContent = error.message;
+					errorDiv.classList.remove("hidden");
+				});
+		});
+	}
 });
