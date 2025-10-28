@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			const email = document.getElementById("email-address").value;
 			const password = document.getElementById("password").value;
 			const errorDiv = document.getElementById("login-error");
+			const loginContainer = document.getElementById("login-container");
+			const successContainer = document.getElementById("login-success-container");
 
 			fetch("https://api.acornx.app/api/login", {
 				method: "POST",
@@ -65,9 +67,14 @@ document.addEventListener("DOMContentLoaded", function () {
 				})
 				.then((data) => {
 					console.log("Login successful:", data);
-					// On success, hide any previous error and redirect
-					errorDiv.classList.add("hidden");
-					window.location.href = "/profile.html"; // Redirect to the profile page
+					// On success, hide the login form and show the success message
+					loginContainer.classList.add("hidden");
+					successContainer.classList.remove("hidden");
+
+					// Redirect to the homepage after a short delay
+					setTimeout(() => {
+						window.location.href = "/index.html";
+					}, 1500); // 1.5-second delay
 				})
 				.catch((error) => {
 					console.error("Login failed:", error);
