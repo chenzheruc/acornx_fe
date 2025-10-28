@@ -21,6 +21,11 @@ tailwind.config = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+	// Load shared components
+	loadHTML("navigation-placeholder", "/navigation.html");
+	loadHTML("navigation-home-placeholder", "/navigation_home.html");
+	loadHTML("footer-placeholder", "/footer.html")
+
 	// Function to load HTML content into a placeholder
 	function loadHTML(elementId, url) {
 		const element = document.getElementById(elementId);
@@ -33,39 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
 				.catch((error) => console.error(`Error loading ${url}:`, error));
 		}
 	}
-
-	// Function to update navigation based on login status
-	function updateNavigation() {
-		const token = localStorage.getItem("authToken");
-		const loginRegisterItem = document.getElementById(
-			"navigation-login-register-item"
-		);
-		const profileItem = document.getElementById("navigation-profile-item");
-		const logoutLink = document.getElementById("logout-link");
-
-		if (token) {
-			// User is logged in
-			loginRegisterItem.classList.add("hidden");
-			profileItem.classList.remove("hidden");
-		} else {
-			// User is not logged in
-			loginRegisterItem.classList.remove("hidden");
-			profileItem.classList.add("hidden");
-		}
-
-		if (logoutLink) {
-			logoutLink.addEventListener("click", (e) => {
-				e.preventDefault();
-				localStorage.removeItem("authToken");
-				updateNavigation(); // Re-run to update the UI
-				window.location.href = "/login.html"; // Redirect to login page
-			});
-		}
-	}
-
-	// Load shared components
-	loadHTML("navigation-placeholder", "/navigation.html");
-	loadHTML("footer-placeholder", "/footer.html")
 
 	// Handle Login Form Submission
 	const loginForm = document.getElementById("login-form");
@@ -100,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
 					if (data.token) {
 						localStorage.setItem("authToken", data.token);
 					}
-					updateNavigation(); // Update the nav bar immediately
 
 					// On success, hide the login form and show the success message
 					loginContainer.classList.add("hidden");
