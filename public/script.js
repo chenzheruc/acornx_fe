@@ -95,6 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			const password = document.getElementById("password").value;
 			const confirmPassword = document.getElementById("confirm-password").value;
 			const errorDiv = document.getElementById("register-error");
+			const registerContainer = document.getElementById("register-container");
+			const successContainer = document.getElementById("register-success-container");
 
 			// Basic client-side validation
 			if (password !== confirmPassword) {
@@ -123,9 +125,14 @@ document.addEventListener("DOMContentLoaded", function () {
 				})
 				.then((data) => {
 					console.log("Registration successful:", data);
-					// On success, hide any previous error and redirect to login page
-					errorDiv.classList.add("hidden");
-					window.location.href = "/login.html"; // Redirect to login to complete the flow
+					// On success, hide the registration form and show the success message
+					registerContainer.classList.add("hidden");
+					successContainer.classList.remove("hidden");
+
+					// Redirect to the login page after a short delay
+					setTimeout(() => {
+						window.location.href = "/login.html";
+					}, 1500); // 1.5-second delay
 				})
 				.catch((error) => {
 					console.error("Registration failed:", error);
