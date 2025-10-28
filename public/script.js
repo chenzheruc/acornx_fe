@@ -19,3 +19,21 @@ tailwind.config = {
 		},
 	},
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+	// Function to load HTML content into a placeholder
+	function loadHTML(elementId, url) {
+		const element = document.getElementById(elementId);
+		if (element) {
+			fetch(url)
+				.then((response) => response.text())
+				.then((html) => {
+					element.outerHTML = html; // Replace the placeholder with the loaded HTML
+				})
+				.catch((error) => console.error(`Error loading ${url}:`, error));
+		}
+	}
+
+	// Load shared components
+	loadHTML("navigation-placeholder", "/navigation.html");
+});
