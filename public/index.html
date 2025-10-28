@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bookworm Buddy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3db8f5",
+                        "background-light": "#f8fbfc",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d171c] dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e7eff4] dark:border-b-gray-700 px-4 sm:px-10 py-3">
+<div class="flex items-center gap-4 text-[#0d171c] dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clippath id="clip0_6_330">
+<rect fill="white" height="48" width="48"></rect>
+</clippath>
+</defs>
+</svg>
+</div>
+<h2 class="text-[#0d171c] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Bookworm Buddy</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-[#0d171c] dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">Home</a>
+<a class="text-[#0d171c] dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal" href="#">About</a>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#e7eff4] dark:bg-primary/20 text-[#0d171c] dark:text-white hover:bg-primary/20 dark:hover:bg-primary/30 text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Login</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-primary text-white hover:bg-primary/90 text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Register</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<div class="@container">
+<div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row @[864px]:items-center">
+<div class="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center flex-1">
+<div class="flex flex-col gap-2 text-left">
+<h1 class="text-[#0d171c] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                                            Find the perfect book for your little reader
+                                        </h1>
+<h2 class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                                            Explore a world of stories, adventures, and learning. Tell us what you're looking for, and we'll find the best books for your child.
+                                        </h2>
+</div>
+<label class="flex flex-col min-w-40 h-14 w-full max-w-[480px] @[480px]:h-16">
+<div class="flex w-full flex-1 items-stretch rounded-xl h-full shadow-sm">
+<div class="text-[#49819c] dark:text-gray-400 flex border-none bg-[#e7eff4] dark:bg-background-dark/50 items-center justify-center pl-4 rounded-l-xl border-r-0">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#0d171c] dark:text-white focus:outline-0 focus:ring-0 border-none bg-[#e7eff4] dark:bg-background-dark/50 focus:border-none h-full placeholder:text-[#49819c] dark:placeholder:text-gray-400 px-4 rounded-r-none border-r-0 pr-2 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal" placeholder="Search by title, author, or topic..." value=""/>
+<div class="flex items-center justify-center rounded-r-xl border-l-0 border-none bg-[#e7eff4] dark:bg-background-dark/50 pr-2">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-primary text-white hover:bg-primary/90 text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+<span class="truncate">Search</span>
+</button>
+</div>
+</div>
+</label>
+</div>
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl @[480px]:h-auto @[480px]:min-w-[400px] @[864px]:w-full @[864px]:max-w-[400px] flex-1" data-alt="A colorful and cheerful illustration of kids reading books under a large tree." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCrCfW0XRXpwCD4pnTBE6J7ltUxMql2LemxItAgnZLXPLVXL_qhzT5WVIYtUGc-TSO5pzb8okp03uQYrOpAED3ETAGkpBLiU5nn0Qsd25NkMALlN9QSvaKG_Lqg1d3kAiqNV4S6Cm7tT5YVk4IJu_pj3M6zpkLyVl8DGFSl9uzLTgBsPGvwMmIqfy5Sg03Ar52xKBvpoqVoEPyDVZOC-DPY0QN_vUCMVIMg0ICbEof-Cwc5w8e7f4cZLkaB-hl-3SjK8t7WeN4RaE");'></div>
+</div>
+</div>
+<section class="mt-8">
+<h2 class="text-[#0d171c] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Popular Picks</h2>
+<div class="flex gap-3 p-3 overflow-x-auto">
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary/20 text-primary dark:bg-primary/30 dark:text-white px-4">
+<p class="text-sm font-medium leading-normal">Ages 3-5</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-[#e7eff4] dark:bg-background-dark/50 hover:bg-primary/20 dark:hover:bg-primary/30 px-4">
+<p class="text-[#0d171c] dark:text-gray-300 text-sm font-medium leading-normal">Adventure</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-[#e7eff4] dark:bg-background-dark/50 hover:bg-primary/20 dark:hover:bg-primary/30 px-4">
+<p class="text-[#0d171c] dark:text-gray-300 text-sm font-medium leading-normal">Picture Books</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-[#e7eff4] dark:bg-background-dark/50 hover:bg-primary/20 dark:hover:bg-primary/30 px-4">
+<p class="text-[#0d171c] dark:text-gray-300 text-sm font-medium leading-normal">New Releases</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-[#e7eff4] dark:bg-background-dark/50 hover:bg-primary/20 dark:hover:bg-primary/30 px-4">
+<p class="text-[#0d171c] dark:text-gray-300 text-sm font-medium leading-normal">Fantasy</p>
+</div>
+<div class="flex h-8 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-[#e7eff4] dark:bg-background-dark/50 hover:bg-primary/20 dark:hover:bg-primary/30 px-4">
+<p class="text-[#0d171c] dark:text-gray-300 text-sm font-medium leading-normal">Animals</p>
+</div>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-4 p-4">
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl shadow-md group-hover:shadow-xl transition-shadow" data-alt="Book cover for The Wild Robot" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwypTvTFYqT8PzeTIrESmYI6uyH1p6qPw9VTVWJHqwGYmQlGNe1mUZrKUdTvFGooc0vhHwc2V5m0Z-O-vm41mN9yV_TSAXkRsfFdBNFTiHO6H0cgbgE0Q0PaDMnIH0og0QAA9Wqwdxn2LS-nMbrLttX1lkSEHrl5IEmVA30CykgcYKoI3v5zq1yi-C7itqHptcpe6-jSjK-sr_hXfd8K6hi37brN-R0pts_4Z6Vf6EEuRkSQd4vgC8u9bkcBH4TTthhJSShliJkIs");'></div>
+<div>
+<p class="text-[#0d171c] dark:text-white text-base font-medium leading-normal">The Wild Robot</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Peter Brown</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl shadow-md group-hover:shadow-xl transition-shadow" data-alt="Book cover for Where the Wild Things Are" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBXOLqDuS9bAMj2CwiiELdvZW3Cu0u6hcoEg-dKLA4fwfQG2VgSXYr2Tpj3JWv5jxm23N9lLTJg68rAN-1EvNqq2zDEFWfqhyZjmWGCg3dpdfQPlFJib3xnWPqi8fiKPKJpcdDlDdjs9Gc90Wxuqspz-kWuOLZYPPnRQTOWY5_tOuqWDhqz-NeP1PzQrGITEikXoqru5cqMCavWjBWwZSGtW1KZqFkk1u6vG4EYso2eTOqwNxxgROwMM7oo-NI6cc6Y9mZlnjtAIoQ");'></div>
+<div>
+<p class="text-[#0d171c] dark:text-white text-base font-medium leading-normal">Where the Wild Things Are</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Maurice Sendak</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl shadow-md group-hover:shadow-xl transition-shadow" data-alt="Book cover for Goodnight Moon" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHS2ZXFKl24Ddlmm4bWaNju5tVOPXmW-5zW5rEzX1A0zDOVO18XX2fFojIdDtk1rtY4caqF0IqbFJyVQTto4VuvsW391TC34tuWuiemEAK8grgqpTSJCeloeGdM9nGpJtNoT9A7uVeJR1NtflsGKigylanKRsAxsa4Um8k-0lXsHcuxWZsSyxm93A1jmUx_IJi7wJs9TCO-hTA-Pk175lszCojcf0djcilCXZSzdR2KP-Efy7McVwAXsVXhlDBHEdOFcnPXLJrOM0");'></div>
+<div>
+<p class="text-[#0d171c] dark:text-white text-base font-medium leading-normal">Goodnight Moon</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Margaret Wise Brown</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl shadow-md group-hover:shadow-xl transition-shadow" data-alt="Book cover for The Very Hungry Caterpillar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCnndrF7NLv4jymKT5f4VkoFxxoKiMJVJLFqKsWwthWsZDtgfQnB3EeK4nfsjU-GwFuYTyb7jfNybKz-aLc4d--1FwHDwoGmNEFeaap_RJY4XAvXWnhURomQ-tG27QliSEZ4ckbRBzhI4GQ6zxuBGx1M7pFWMGIPhYvWzTXn6bLnsHBMGcu23lWV_UECMkHfUNgmbsXxSzlgAs4fS9gfxyJfYu8KLjo2FUmIVK7_fifL8VnXTuksOiss8jDAc_hd1tiQyOpXj_3PJk");'></div>
+<div>
+<p class="text-[#0d171c] dark:text-white text-base font-medium leading-normal">The Very Hungry Caterpillar</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Eric Carle</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl shadow-md group-hover:shadow-xl transition-shadow" data-alt="Book cover for Don't Let the Pigeon Drive the Bus!" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBYEdwyS08fOkxlrVpClo8E-icN0Wd4YALbGCyCwRsda_Fg_NnSvEE7uK-a2Z9792WYJMuoGhBl8ngOA6id_ez9lEILaLB9eIIKjf2GORHstlDyM7qkoNpxdNG_neQuZFDLe74PhMeE-kV79XRlIRsbIJMjNjm9Br5AUQaieVRIPjFXsJw6c3FWoJf09MXjyKiJidd5HPFs69yHJySnceqjlVCMWodQH0MQlVpRM7SJjSeqrETuKobF9OXgYYv54IODYn3B_HvnfU");'></div>
+<div>
+<p class="text-[#0d171c] dark:text-white text-base font-medium leading-normal">Don't Let the Pigeon Drive the Bus!</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Mo Willems</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl shadow-md group-hover:shadow-xl transition-shadow" data-alt="Book cover for Dragons Love Tacos" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZo-FhED5-VZNQ7zQkhjONxvv-91Rqoy5LTqkjZfE2OBdrOXrdugSH-U1aUpZbSbfy37YJWbqaR5Ga6KCflV6dn_vhDioU11tAbwITA23oS2eHYF7sld_C1P_3G4NWZfVDDSpWSqUgdc_WCI0xaiKhXxufJ0dQDj_Q54n7GiftEiTD4LF1K_xVnAwvi8Tw4NfNDMgnzHhxzv7OZC81Q-yCAcFtH0Q-NBJQIPgsNCVC_AAgQHpQHuDA8BTYVWHa2_Lp6uA1G4AGrV8");'></div>
+<div>
+<p class="text-[#0d171c] dark:text-white text-base font-medium leading-normal">Dragons Love Tacos</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Adam Rubin</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl shadow-md group-hover:shadow-xl transition-shadow" data-alt="Book cover for Charlotte's Web" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_0YqnmITDHmudacDgf155QBZ87mCbWt_jesVVpFzix8rTdKhaClTSohlJwvyK11AZefIpWsbGF7hEPVfwInK4qn_Kq2blJaZeqaOcwPB2P1pdsetJNa1db0QlVwKwmwkznVWt8X48PI9mhCbtUZL-ummDIGDAr6UL3X3uusYQ19KVM1jjARii8QDTP3cFQAk0dV6oc_9kDX-JpGrHU9kuVUuw5faknY5lXm7Zpset1brlunizEmxLr9ETjRXpT5e9f6IpWKyvC1A");'></div>
+<div>
+<p class="text-[#0d171c] dark:text-white text-base font-medium leading-normal">Charlotte's Web</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">E.B. White</p>
+</div>
+</div>
+<div class="flex flex-col gap-3 pb-3 group">
+<div class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl shadow-md group-hover:shadow-xl transition-shadow" data-alt="Book cover for The Gruffalo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBguWFXVQzNk21MF14-deOkxFaEbyVEUtfNo4AYs1rihyly6HK0kl87nKFzVI5dzlfOh03NJmkyl8-cVY34mAXBBFiFua9QEd81IUOId8eIqn_uFD3v37mlnM6TPHW9KHmQZDPtvIYg72VdEbT6uwGv0zlpwWCxK37b1w2WwDFbMCG3FOvqZFqrCNg2mbaWAadcptnolREE5AjcfkFDco2yRMvaZWTYm5ckJ5vKJ_8a96Q0IwjyFtGrPtk18CdeS3i-fQQR52qNg5c");'></div>
+<div>
+<p class="text-[#0d171c] dark:text-white text-base font-medium leading-normal">The Gruffalo</p>
+<p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">Julia Donaldson</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="mt-12 border-t border-solid border-t-[#e7eff4] dark:border-t-gray-700 py-8 px-4">
+<div class="flex flex-col md:flex-row items-center justify-between gap-6">
+<p class="text-sm text-gray-500 dark:text-gray-400">© 2024 Bookworm Buddy. All Rights Reserved.</p>
+<div class="flex items-center gap-6">
+<a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-sm text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>
