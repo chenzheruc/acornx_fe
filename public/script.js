@@ -21,10 +21,6 @@ tailwind.config = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-	// Load shared components
-	loadHTML("navigation-placeholder", "/navigation.html");
-	loadHTML("navigation-home-placeholder", "/navigation_home.html");
-	loadHTML("footer-placeholder", "/footer.html")
 
 	// Function to load HTML content into a placeholder
 	function loadHTML(elementId, url) {
@@ -39,113 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	}
 
-	// Handle Login Form Submission
-	const loginForm = document.getElementById("login-form");
-	if (loginForm) {
-		loginForm.addEventListener("submit", function (event) {
-			event.preventDefault(); // Prevent the default form submission
+	// Load shared components
+	loadHTML("navigation-placeholder", "/navigation.html");
+	loadHTML("navigation-home-placeholder", "/navigation_home.html");
+	loadHTML("footer-placeholder", "/footer.html")
 
-			const email = document.getElementById("email-address").value;
-			const password = document.getElementById("password").value;
-			const errorDiv = document.getElementById("login-error");
-			const loginContainer = document.getElementById("login-container");
-			const successContainer = document.getElementById("login-success-container");
-
-			fetch("https://api.acornx.app/api/login", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ email, password }),
-			})
-				.then((response) => {
-					if (response.ok) {
-						return response.json(); // or response.text() if the API returns text
-					} else {
-						// Handle HTTP errors (e.g., 401, 404, 500)
-						throw new Error("Invalid email or password.");
-					}
-				})
-				.then((data) => {
-					console.log("Login successful:", data);
-					// Assuming the API returns a token, e.g., { token: "..." }
-					if (data.token) {
-						localStorage.setItem("authToken", data.token);
-					}
-
-					// On success, hide the login form and show the success message
-					loginContainer.classList.add("hidden");
-					successContainer.classList.remove("hidden");
-
-					// Redirect to the homepage after a short delay
-					setTimeout(() => {
-						window.location.href = "/home.html";
-					}, 1500); // 1.5-second delay
-				})
-				.catch((error) => {
-					console.error("Login failed:", error);
-					// Display error message to the user
-					errorDiv.textContent = error.message;
-					errorDiv.classList.remove("hidden");
-				});
-		});
-	}
-
-	// Handle Register Form Submission
-	const registerForm = document.getElementById("register-form");
-	if (registerForm) {
-		registerForm.addEventListener("submit", function (event) {
-			event.preventDefault();
-
-			const email = document.getElementById("email").value;
-			const password = document.getElementById("password").value;
-			const confirmPassword = document.getElementById("confirm-password").value;
-			const errorDiv = document.getElementById("register-error");
-			const registerContainer = document.getElementById("register-container");
-			const successContainer = document.getElementById("register-success-container");
-
-			// Basic client-side validation
-			if (password !== confirmPassword) {
-				errorDiv.textContent = "Passwords do not match.";
-				errorDiv.classList.remove("hidden");
-				return;
-			}
-
-			fetch("https://api.acornx.app/api/register", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ email, password }),
-			})
-				.then(async (response) => {
-					if (response.ok) {
-						return response.json();
-					} else {
-						// Try to parse error message from API response
-						const errorData = await response.json().catch(() => ({}));
-						const message =
-							errorData.message || "An error occurred during registration.";
-						throw new Error(message);
-					}
-				})
-				.then((data) => {
-					console.log("Registration successful:", data);
-					// On success, hide the registration form and show the success message
-					registerContainer.classList.add("hidden");
-					successContainer.classList.remove("hidden");
-
-					// Redirect to the login page after a short delay
-					setTimeout(() => {
-						window.location.href = "/profile.html";
-					}, 1500); // 1.5-second delay
-				})
-				.catch((error) => {
-					console.error("Registration failed:", error);
-					// Display error message to the user
-					errorDiv.textContent = error.message;
-					errorDiv.classList.remove("hidden");
-				});
-		});
-	}
+	// Initialize form handlers from auth.js
+	if (typeof handleLoginForm === "function") handleLoginForm();
+	if (typeof handleRegisterForm === "function") handleRegisterForm();
 });
