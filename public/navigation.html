@@ -19,7 +19,7 @@
         <a href="index.html" class="text-[#0d171c] dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal">Home</a>
         <a href="#" class="text-[#0d171c] dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal">About</a>
     </div>
-    <div class="flex gap-2">
+    <div id="navigation-login-register-item" class="flex gap-2">
         <a href="login.html" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#e7eff4] dark:bg-primary/20 text-[#0d171c] dark:text-white hover:bg-primary/20 dark:hover:bg-primary/30 text-sm font-bold leading-normal tracking-[0.015em]">
         <span class="truncate">Login</span>
         </a>
@@ -27,5 +27,15 @@
         <span class="truncate">Register</span>
         </a>
     </div>
+<div id="navigation-profile-item" class="relative group hidden">
+<button class="flex min-w-10 max-w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-[#e7eff4] dark:bg-primary/20 text-[#0d171c] dark:text-white hover:bg-primary/20 dark:hover:bg-primary/30">
+<span class="material-symbols-outlined text-primary dark:text-white">person</span>
+</button>
+<div class="absolute right-0 mt-2 w-48 bg-white dark:bg-[#1c2c35] rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 py-1 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-auto">
+<a class="block px-4 py-2 text-sm text-[#0d171c] dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">Settings</a>
+<a class="block px-4 py-2 text-sm text-[#0d171c] dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">Profile</a>
+<a id="logout-link" class="block px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700" href="#">Logout</a>
+</div>
+</div>    
 </div>
 </header>
