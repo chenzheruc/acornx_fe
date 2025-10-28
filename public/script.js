@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 					// Redirect to the login page after a short delay
 					setTimeout(() => {
-						window.location.href = "/login.html";
+						window.location.href = "/profile.html";
 					}, 1500); // 1.5-second delay
 				})
 				.catch((error) => {
