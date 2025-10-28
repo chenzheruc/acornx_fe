@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			const password = document.getElementById("password").value;
 			const errorDiv = document.getElementById("login-error");
 
-			fetch("https://api.acornx.app/login", {
+			fetch("https://api.acornx.app/api/login", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -71,6 +71,57 @@ document.addEventListener("DOMContentLoaded", function () {
 				})
 				.catch((error) => {
 					console.error("Login failed:", error);
+					// Display error message to the user
+					errorDiv.textContent = error.message;
+					errorDiv.classList.remove("hidden");
+				});
+		});
+	}
+
+	// Handle Register Form Submission
+	const registerForm = document.getElementById("register-form");
+	if (registerForm) {
+		registerForm.addEventListener("submit", function (event) {
+			event.preventDefault();
+
+			const email = document.getElementById("email").value;
+			const password = document.getElementById("password").value;
+			const confirmPassword = document.getElementById("confirm-password").value;
+			const errorDiv = document.getElementById("register-error");
+
+			// Basic client-side validation
+			if (password !== confirmPassword) {
+				errorDiv.textContent = "Passwords do not match.";
+				errorDiv.classList.remove("hidden");
+				return;
+			}
+
+			fetch("https://api.acornx.app/api/register", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ email, password }),
+			})
+				.then(async (response) => {
+					if (response.ok) {
+						return response.json();
+					} else {
+						// Try to parse error message from API response
+						const errorData = await response.json().catch(() => ({}));
+						const message =
+							errorData.message || "An error occurred during registration.";
+						throw new Error(message);
+					}
+				})
+				.then((data) => {
+					console.log("Registration successful:", data);
+					// On success, hide any previous error and redirect to login page
+					errorDiv.classList.add("hidden");
+					window.location.href = "/login.html"; // Redirect to login to complete the flow
+				})
+				.catch((error) => {
+					console.error("Registration failed:", error);
 					// Display error message to the user
 					errorDiv.textContent = error.message;
 					errorDiv.classList.remove("hidden");
