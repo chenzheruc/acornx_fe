@@ -83,12 +83,59 @@ function handleRegisterForm() {
 			})
 			.then((data) => {
 				console.log("Registration successful:", data);
+				if (data.user && data.user.id) {
+					localStorage.setItem("userId", data.user.id);
+				}
 				registerContainer.classList.add("hidden");
 				successContainer.classList.remove("hidden");
 				setTimeout(() => { window.location.href = "/profile.html"; }, 1500);
 			})
 			.catch((error) => {
 				console.error("Registration failed:", error);
+				errorDiv.textContent = error.message;
+				errorDiv.classList.remove("hidden");
+			});
+	});
+}
+
+function handleProfileForm() {
+	const profileForm = document.getElementById("profile-form");
+	if (!profileForm) return;
+
+	profileForm.addEventListener("submit", function (event) {
+		event.preventDefault();
+
+		const name = document.getElementById("child-name").value;
+		const age = document.getElementById("child-age").value;
+		const genderRadio = document.querySelector('input[name="gender"]:checked');
+		const gender = genderRadio ? genderRadio.value : null;
+		const grade_level = document.getElementById("grade-level").value;
+		const errorDiv = document.getElementById("profile-error");
+		const successContainer = document.getElementById("profile-success-container");
+		const formContainer = document.getElementById("profile-form-container");
+
+		const token = localStorage.getItem("authToken");
+		const user_id = localStorage.getItem("userId");
+
+		fetch("https://api.acornx.app/api/add_child_profile", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+			},
+			body: JSON.stringify({ user_id, name, age, gender, grade_level }),
+		})
+			.then(async (response) => {
+				if (response.ok) return response.json();
+				const errorData = await response.json().catch(() => ({}));
+				throw new Error(errorData.message || "Failed to add profile.");
+			})
+			.then((data) => {
+				formContainer.classList.add("hidden");
+				successContainer.classList.remove("hidden");
+				setTimeout(() => { window.location.href = "/home.html"; }, 1500);
+			})
+			.catch((error) => {
 				errorDiv.textContent = error.message;
 				errorDiv.classList.remove("hidden");
 			});

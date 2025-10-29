@@ -7,6 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 <script src="script.js"></script>
+<script src="auth.js"></script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-W3EZRCXTTP"></script>
@@ -32,7 +33,9 @@
 <h1 class="text-3xl font-bold text-[#0d171c] dark:text-white sm:text-4xl">Tell Us About You!</h1>
 <p class="mt-2 text-gray-600 dark:text-gray-400">This helps us find the perfect content for you.</p>
 </div>
-<div class="space-y-6">
+<div id="profile-form-container">
+<form id="profile-form" class="space-y-6">
+<div id="profile-error" class="hidden text-red-500 text-sm text-center"></div>
 <div>
 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="child-name">Child's Name</label>
 <div class="mt-1">
@@ -49,43 +52,49 @@
 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Gender</label>
 <div class="grid grid-cols-3 gap-3">
 <label class="flex cursor-pointer items-center justify-center rounded-lg border border-gray-300 dark:border-gray-600 bg-[#e7eff4] dark:bg-background-dark/50 p-3 text-center text-sm font-medium text-gray-800 dark:text-gray-200 has-[:checked]:bg-primary/20 has-[:checked]:border-primary has-[:checked]:text-primary dark:has-[:checked]:text-primary">
-<input class="sr-only" name="gender" type="radio" value="boy"/> Boy
+<input class="sr-only" name="gender" required="" type="radio" value="boy"/> Boy
 </label>
 <label class="flex cursor-pointer items-center justify-center rounded-lg border border-gray-300 dark:border-gray-600 bg-[#e7eff4] dark:bg-background-dark/50 p-3 text-center text-sm font-medium text-gray-800 dark:text-gray-200 has-[:checked]:bg-primary/20 has-[:checked]:border-primary has-[:checked]:text-primary dark:has-[:checked]:text-primary">
-<input class="sr-only" name="gender" type="radio" value="girl"/> Girl
+<input class="sr-only" name="gender" required="" type="radio" value="girl"/> Girl
 </label>
 <label class="flex cursor-pointer items-center justify-center rounded-lg border border-gray-300 dark:border-gray-600 bg-[#e7eff4] dark:bg-background-dark/50 p-3 text-center text-sm font-medium text-gray-800 dark:text-gray-200 has-[:checked]:bg-primary/20 has-[:checked]:border-primary has-[:checked]:text-primary dark:has-[:checked]:text-primary">
-<input class="sr-only" name="gender" type="radio" value="not_specified"/> Prefer not to say
+<input class="sr-only" name="gender" required="" type="radio" value="not_specified"/> Prefer not to say
 </label>
 </div>
 </div>
 <div>
 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300" for="grade-level">Grade Level</label>
 <div class="mt-1">
-<select class="form-select block w-full rounded-lg border-gray-300 bg-[#e7eff4] dark:bg-background-dark/50 dark:border-gray-600 focus:border-primary focus:ring-primary shadow-sm sm:text-sm h-12 px-4" id="grade-level" name="grade-level">
-<option>Select a grade</option>
-<option>Preschool</option>
-<option>Pre-K</option>
-<option>Transitional Kindergarten (TK)</option>
-<option>Kindergarten</option>
-<option>1st Grade</option>
-<option>2nd Grade</option>
-<option>3rd Grade</option>
-<option>4th Grade</option>
-<option>5th Grade</option>
-<option>6th Grade</option>
-<option>7th Grade</option>
-<option>8th Grade</option>
-<option>9th Grade</option>
-<option>10th Grade</option>
-<option>11th Grade</option>
-<option>12th Grade</option>
+<select class="form-select block w-full rounded-lg border-gray-300 bg-[#e7eff4] dark:bg-background-dark/50 dark:border-gray-600 focus:border-primary focus:ring-primary shadow-sm sm:text-sm h-12 px-4" id="grade-level" name="grade-level" required="">
+<option value="">Select a grade</option>
+<option value="Preschool">Preschool</option>
+<option value="Pre-K">Pre-K</option>
+<option value="Transitional Kindergarten (TK)">Transitional Kindergarten (TK)</option>
+<option value="Kindergarten">Kindergarten</option>
+<option value="1st Grade">1st Grade</option>
+<option value="2nd Grade">2nd Grade</option>
+<option value="3rd Grade">3rd Grade</option>
+<option value="4th Grade">4th Grade</option>
+<option value="5th Grade">5th Grade</option>
+<option value="6th Grade">6th Grade</option>
+<option value="7th Grade">7th Grade</option>
+<option value="8th Grade">8th Grade</option>
+<option value="9th Grade">9th Grade</option>
+<option value="10th Grade">10th Grade</option>
+<option value="11th Grade">11th Grade</option>
+<option value="12th Grade">12th Grade</option>
 </select>
 </div>
 </div>
 <div>
 <button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-12 px-4 bg-primary text-white hover:bg-primary/90 text-base font-bold leading-normal tracking-[0.015em]" type="submit">Submit</button>
 </div>
+</form>
+</div>
+<div id="profile-success-container" class="hidden text-center rounded-xl bg-white dark:bg-background-dark/50 p-8 shadow-lg">
+<h2 class="text-2xl font-bold text-[#0d171c] dark:text-white">Profile Added!</h2>
+<p class="mt-2 text-green-600 dark:text-green-500">Your child's profile has been created.</p>
+<p class="mt-4 text-sm text-gray-600 dark:text-gray-400">Redirecting you to the homepage...</p>
 </div>
 </div>
 </main>

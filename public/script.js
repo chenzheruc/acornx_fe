@@ -43,4 +43,5 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Initialize form handlers from auth.js
 	if (typeof handleLoginForm === "function") handleLoginForm();
 	if (typeof handleRegisterForm === "function") handleRegisterForm();
+	if (typeof handleProfileForm === "function") handleProfileForm();
 });
